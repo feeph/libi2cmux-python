@@ -18,7 +18,7 @@
 
 [project]
 name = "feeph.i2cmux"
-version = "0.0.0"
+version = "0.1.0"
 description = "library for various I²C bus multiplexers (e.g. TCA9548A)"
 authors = [
     {name = "Feeph Aifeimei", email = "55798703+feeph@users.noreply.github.com"},
