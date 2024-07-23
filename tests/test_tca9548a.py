@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+"""
+perform TCA9548A related tests
+
+use simulated device:
+  pdm run pytest
+use hardware device:
+  TEST_TCA9548A_CHIP=y pdm run pytest
+"""
+
+import os
+import unittest
+
+# modules board and busio provide no type hints
+import board  # type: ignore
+import busio  # type: ignore
+from feeph.i2c import EmulatedI2C
+
+import feeph.i2cmux as sut
+
+
+if os.environ.get('TEST_TCA9548A_CHIP', 'n') == 'y':
+    HAS_HARDWARE = True
+else:
+    HAS_HARDWARE = False
+
+
+class TestComponent(unittest.TestCase):
+
+    def setUp(self):
+        self.i2c_adr = 0x70
+        if HAS_HARDWARE:
+            self.i2c_bus = busio.I2C(scl=board.SCL, sda=board.SDA)
+        else:
+            # initialize read/write registers
+            registers = {}
+            self.i2c_bus = EmulatedI2C(state={self.i2c_adr: registers})
+
+    def tearDown(self):
+        # nothing to do
+        pass
+
+    # ---------------------------------------------------------------------
+
+    # selected channels are expressed as a bitmask
+    #  0b0000_0000 - no channel is active
+    #  0b0000_0001 - channel 0 is active
+    #       ...
+    #  0b0100_0000 - channel 7 is active
+
+    def test_use_channel1(self):
+        with sut.TCA9548A(i2c_bus=self.i2c_bus, i2c_adr=0x4C, tca_adr=0x70, tca_cid=0):
+            computed = self.i2c_bus._state[0x70][-1]
+        expected = 0x01  # channel 1 was selected
+        self.assertEqual(computed, expected)
+
+    def test_release_channel1(self):
+        with sut.TCA9548A(i2c_bus=self.i2c_bus, i2c_adr=0x4C, tca_adr=0x70, tca_cid=0):
+            pass
+        computed = self.i2c_bus._state[0x70][-1]
+        expected = 0x00  # no channel was selected
+        self.assertEqual(computed, expected)
+
+    def test_use_invalid_channel(self):
+        self.assertRaises(ValueError, sut.TCA9548A, i2c_bus=self.i2c_bus, i2c_adr=0x4C, tca_adr=0x70, tca_cid=8)
+
+    # ---------------------------------------------------------------------
+
+    def test_multiplexed_device(self):
+        state = {
+            0x70: {
+                -1: 0x00,
+            },
+            0x4C: {
+                0x01: 0x12,
+            }
+        }
+        i2c_bus = EmulatedI2C(state=state)
+        with sut.TCA9548A(i2c_bus=i2c_bus, i2c_adr=0x4C, tca_adr=0x70, tca_cid=0) as bh:
+            computed = bh.read_register(0x01)
+        expected = 0x12
+        self.assertEqual(computed, expected)

@@ -1,0 +1,102 @@
+# quickstart:
+#   pdm install
+#   pdm run pytest
+
+# dependencies
+#   - use `pdm add <package>` and `pdm remove <package>` to manage dependencies
+#   - use `pdm update --update-all` to update dependencies
+#   - use `pdm install` to install dependencies
+
+# usage:
+#   - use `pdm run <pythonfile>` to execute code
+#   - use `pdm run pytest` to perform unit tests
+
+# line lengths:
+#   - Excessive line lengths aren't good. But rather then automatically
+#     breaking them and turning into vertical blocks we want to see the
+#     nastiness sticking out prominently.
+
+[project]
+name = "feeph.i2cmux"
+version = "0.0.0"
+description = "library for various I²C bus multiplexers (e.g. TCA9548A)"
+authors = [
+    {name = "Feeph Aifeimei", email = "55798703+feeph@users.noreply.github.com"},
+]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "adafruit-blinka~=8.46",
+    "adafruit-board-toolkit~=1.1",
+    "feeph-i2c~=0.6",
+    "gpiod~=2.2",
+]
+readme = "README.md"
+license = {text = "GPL-3.0-or-later"}
+repository = "https://github.com/feeph/libi2cmux-python/"
+keywords = [
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Hardware",
+    "Typing :: Typed",
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+# -------------------------------------------------------------------------
+# tooling
+# -------------------------------------------------------------------------
+
+# https://github.com/PyCQA/isort
+# https://pycqa.github.io/isort/
+[tool.isort]
+# use the black profile but override "multi_line_output"
+profile           = "black"
+line_length       = 250
+multi_line_output = 7
+src_paths         = ["feeph", "tests"]
+
+# https://pypi.org/project/autopep8/
+[tool.autopep8]
+max_line_length = 250
+ignore          = ["E221", "E241"]
+in-place = true
+
+[tool.pdm]
+distribution = true
+
+# automatically update requirements.txt on `pdm lock`
+[[tool.pdm.autoexport]]
+filename = "requirements.txt"
+groups = ["default", "test"]
+
+[tool.pdm.build]
+includes = ["feeph/"]
+source-includes = ["tests/"]
+
+[tool.pdm.dev-dependencies]
+dev = [
+]
+test = [
+    "autopep8     ~= 2.2",
+    "flake8       ~= 7.0",
+    "mypy         ~= 1.10",
+    "pytest-cov   ~= 5.0",
+    "pytest-sugar ~= 1.0",
+    "types-PyYAML>=6.0.12.20240311",
+]
+
+# during development: fetch all packages in our namespace from TestPyPI
+#
+# this config is used exclusively by pdm and has no impact on regular
+# consumers using `pip install <package>` to install the package
+[[tool.pdm.source]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+include_packages = ["feeph-*"]

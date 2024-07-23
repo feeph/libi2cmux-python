@@ -1,0 +1,26 @@
+---
+name: publish on TestPyPI
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+# It is strongly recommended to use a trusted publisher when publishing to
+# TestPyPI or PyPI. This is an OIDC based workflow and avoids the need to
+# configure long-running, shared credentials. For a detailed description
+# please refer to https://docs.pypi.org/trusted-publishers/
+
+jobs:
+  build-and-upload:
+    name: build package and upload to TestPyPI
+    runs-on: ubuntu-latest
+    environment: publish-to-testpypi
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pdm-project/setup-pdm@v4
+      - name: Publish package distributions to PyPI
+        run: pdm publish --repository testpypi
