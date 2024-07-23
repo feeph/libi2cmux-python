@@ -1,0 +1,73 @@
+---
+# this repository uses the pre-commit framework
+# documentation can be found at https://pre-commit.com/
+#
+# perform once after cloning the repository:
+#  pipx install pre-commit
+#  pre-commit install --allow-missing-config --hook-type pre-commit
+#  pre-commit install --allow-missing-config --hook-type commit-msg
+#  pre-commit install --allow-missing-config --hook-type post-commit
+#  pre-commit install --allow-missing-config --hook-type pre-push
+#
+# if you want to trigger pre-commit manually:
+#  pre-commit run
+#
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: check-json
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  # https://pycqa.github.io/isort/docs/configuration/pre-commit.html
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+  # https://pypi.org/project/autopep8/
+  - repo: https://github.com/hhatto/autopep8
+    rev: v2.2.0
+    hooks:
+      - id: autopep8
+  # https://www.conventionalcommits.org/
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.2.0
+    hooks:
+      - id: conventional-pre-commit
+        stages:
+         - commit-msg
+        args: []
+  # https://github.com/PyCQA/flake8
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+  # -----------------------------------------------------------------------
+  # !! post-commit can't prevent the commit from happening !!
+  #
+  # At this point we can only complain that the commit wasn't signed
+  # properly and provide a warning that something isn't right and remind
+  # the user to go back and fix this specific commit.
+  #
+  # (We rely on the 'pre-push' stage to prevent pushing of unsigned commits.)
+  - repo: local
+    hooks:
+      - id: commit-signed
+        name: Verify commit is signed
+        stages:
+            - post-commit
+        always_run: true
+        language: system
+        entry: git
+        args: [ "verify-commit", "HEAD" ]
+  # -----------------------------------------------------------------------
+  - repo: local
+    hooks:
+      - id: signed-commits
+        name: Verify signature
+        language: script
+        entry: scripts/verify_commits-are-signed
+        args: [ "$PRE_COMMIT_FROM_REF", "$PRE_COMMIT_TO_REF" ]
+        stages:
+            - pre-push
