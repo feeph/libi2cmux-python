@@ -13,9 +13,9 @@ adafruit-circuitpython-busdevice==5.2.9 \
 adafruit-circuitpython-connectionmanager==3.1.1 \
     --hash=sha256:0b6df0f18c25208b59a007f7dcde58d8b147643738a1cd9ac03f3b1ac0129540 \
     --hash=sha256:652bf7ec8a12f5a8b086b4d3540d56c53dc82915a6a08b0b8e46a1b82b0ad535
-adafruit-circuitpython-requests==4.1.4 \
-    --hash=sha256:516ba2795f8295c82c8928681b047385c3f6998a6bcfd2c2d765e8a70a562ed5 \
-    --hash=sha256:519d18f5ddbc5f7ba02a7079fcdf7947430fb422fd9c2c42c1c4480cb48e47be
+adafruit-circuitpython-requests==4.1.6 \
+    --hash=sha256:4a7435ecf13924c1143b3204e0695cf17c91e18010741a29088892d73feaafb6 \
+    --hash=sha256:faf9b8ce563763844126aefbddb2a7e4ea57e2edfeae589779df7d209c7dcd84
 adafruit-circuitpython-typing==1.10.3 \
     --hash=sha256:4c5c1eeb3ae8a3d2dfa75129654c73690fbdb576d9069542a6ea3355467e1e74 \
     --hash=sha256:4e23d6828deafa4dfd554fd7d3f06b8ff8e2cc554b9c7aecba9d778d45970c18
@@ -168,9 +168,9 @@ pyftdi==0.55.4 \
 pyserial==3.5 \
     --hash=sha256:3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb \
     --hash=sha256:c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0
-pytest==8.3.1 \
-    --hash=sha256:7e8e5c5abd6e93cb1cc151f23e57adc31fcf8cfd2a3ff2da63e23f732de35db6 \
-    --hash=sha256:e9600ccf4f563976e2c99fa02c7624ab938296551f280835ee6516df8bc4ae8c
+pytest==8.3.2 \
+    --hash=sha256:4ba08f9ae7dcf84ded419494d229b48d0903ea6407b030eaec46df5e6a73bba5 \
+    --hash=sha256:c132345d12ce551242c87269de812483f5bcc87cdbb4722e48487ba194f9fdce
 pytest-cov==5.0.0 \
     --hash=sha256:4f0764a1219df53214206bf1feea4633c3b558a2925c8b59f144f682861ce652 \
     --hash=sha256:5837b58e9f6ebd335b0f8060eecce69b662415b16dc503883a02f45dfeb14857

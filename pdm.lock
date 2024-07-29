@@ -72,7 +72,7 @@ files = [
 
 [[package]]
 name = "adafruit-circuitpython-requests"
-version = "4.1.4"
+version = "4.1.6"
 summary = "A requests-like library for web interfacing"
 groups = ["default"]
 dependencies = [
@@ -80,8 +80,8 @@ dependencies = [
     "Adafruit-Circuitpython-ConnectionManager",
 ]
 files = [
-    {file = "adafruit_circuitpython_requests-4.1.4-py3-none-any.whl", hash = "sha256:519d18f5ddbc5f7ba02a7079fcdf7947430fb422fd9c2c42c1c4480cb48e47be"},
-    {file = "adafruit_circuitpython_requests-4.1.4.tar.gz", hash = "sha256:516ba2795f8295c82c8928681b047385c3f6998a6bcfd2c2d765e8a70a562ed5"},
+    {file = "adafruit_circuitpython_requests-4.1.6-py3-none-any.whl", hash = "sha256:4a7435ecf13924c1143b3204e0695cf17c91e18010741a29088892d73feaafb6"},
+    {file = "adafruit_circuitpython_requests-4.1.6.tar.gz", hash = "sha256:faf9b8ce563763844126aefbddb2a7e4ea57e2edfeae589779df7d209c7dcd84"},
 ]
 
 [[package]]
@@ -450,7 +450,7 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "8.3.1"
+version = "8.3.2"
 requires_python = ">=3.8"
 summary = "pytest: simple powerful testing with Python"
 groups = ["test"]
@@ -463,8 +463,8 @@ dependencies = [
     "tomli>=1; python_version < \"3.11\"",
 ]
 files = [
-    {file = "pytest-8.3.1-py3-none-any.whl", hash = "sha256:e9600ccf4f563976e2c99fa02c7624ab938296551f280835ee6516df8bc4ae8c"},
-    {file = "pytest-8.3.1.tar.gz", hash = "sha256:7e8e5c5abd6e93cb1cc151f23e57adc31fcf8cfd2a3ff2da63e23f732de35db6"},
+    {file = "pytest-8.3.2-py3-none-any.whl", hash = "sha256:4ba08f9ae7dcf84ded419494d229b48d0903ea6407b030eaec46df5e6a73bba5"},
+    {file = "pytest-8.3.2.tar.gz", hash = "sha256:c132345d12ce551242c87269de812483f5bcc87cdbb4722e48487ba194f9fdce"},
 ]
 
 [[package]]
