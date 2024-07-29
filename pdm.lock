@@ -5,7 +5,7 @@
 groups = ["default", "dev", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:25c1e1e469b018a39409baacfb5d570cc67e0b1039dbdd95935620fd850cee5f"
+content_hash = "sha256:b7dd984a13578a5164af7b74ae9c1be63d7deecc55e83ad320431b5bf297f8eb"
 
 [[metadata.targets]]
 requires_python = ">=3.10,<3.13"
@@ -263,7 +263,7 @@ files = [
 
 [[package]]
 name = "feeph-i2c"
-version = "0.6.0"
+version = "0.7.0"
 requires_python = "<3.13,>=3.10"
 summary = "abstraction layer for the I²C bus (incl. simulation for testing)"
 groups = ["default"]
@@ -273,8 +273,8 @@ dependencies = [
     "gpiod~=2.2",
 ]
 files = [
-    {file = "feeph_i2c-0.6.0-py3-none-any.whl", hash = "sha256:e31db53b6f95db5b262c6dd7304771d0921fdcec4e005314ffc84d050555385d"},
-    {file = "feeph_i2c-0.6.0.tar.gz", hash = "sha256:77dcfff13343b532298b8e1ce1a3e5c3f03345a16b3b723f141fd623d8d35ee6"},
+    {file = "feeph_i2c-0.7.0-py3-none-any.whl", hash = "sha256:55194265ceb4ae45bcd70796a79e4ac338ec143dc9afc2e68233522d3b62c015"},
+    {file = "feeph_i2c-0.7.0.tar.gz", hash = "sha256:c53b80270e60b60c691b48ecf2527d96e27e09b47866bf2c003ddbd1857890ac"},
 ]
 
 [[package]]
@@ -554,13 +554,13 @@ files = [
 
 [[package]]
 name = "types-pyyaml"
-version = "6.0.12.20240311"
+version = "6.0.12.20240724"
 requires_python = ">=3.8"
 summary = "Typing stubs for PyYAML"
 groups = ["test"]
 files = [
-    {file = "types-PyYAML-6.0.12.20240311.tar.gz", hash = "sha256:a9e0f0f88dc835739b0c1ca51ee90d04ca2a897a71af79de9aec5f38cb0a5342"},
-    {file = "types_PyYAML-6.0.12.20240311-py3-none-any.whl", hash = "sha256:b845b06a1c7e54b8e5b4c683043de0d9caf205e7434b3edc678ff2411979b8f6"},
+    {file = "types-PyYAML-6.0.12.20240724.tar.gz", hash = "sha256:cf7b31ae67e0c5b2919c703d2affc415485099d3fe6666a6912f040fd05cb67f"},
+    {file = "types_PyYAML-6.0.12.20240724-py3-none-any.whl", hash = "sha256:e5becec598f3aa3a2ddf671de4a75fa1c6856fbf73b2840286c9d50fae2d5d48"},
 ]
 
 [[package]]
