@@ -103,12 +103,12 @@ files = [
 
 [[package]]
 name = "adafruit-platformdetect"
-version = "3.72.1"
+version = "3.73.0"
 summary = "Platform detection for use by libraries like Adafruit-Blinka."
 groups = ["default"]
 files = [
-    {file = "Adafruit_PlatformDetect-3.72.1-py3-none-any.whl", hash = "sha256:65a0aa5054a4a9a8f7e3d4eec9828815a4e1b02085b3c977975e41f697226fd5"},
-    {file = "adafruit_platformdetect-3.72.1.tar.gz", hash = "sha256:a360ccb5fddfe60ce52304bb2d5a5345993df03997e33b7fd2dc65e51c39f02c"},
+    {file = "Adafruit_PlatformDetect-3.73.0-py3-none-any.whl", hash = "sha256:5fc80192a154c29dc1e2819e9c435ea7f8af8fe01c328f35e4bfdabb9934a425"},
+    {file = "adafruit_platformdetect-3.73.0.tar.gz", hash = "sha256:2309098adc8ff87b3d9a4a5d3aeebe3f7b7f55ab0e13d19eb75ffa865f36fab8"},
 ]
 
 [[package]]
@@ -554,13 +554,13 @@ files = [
 
 [[package]]
 name = "types-pyyaml"
-version = "6.0.12.20240724"
+version = "6.0.12.20240808"
 requires_python = ">=3.8"
 summary = "Typing stubs for PyYAML"
 groups = ["test"]
 files = [
-    {file = "types-PyYAML-6.0.12.20240724.tar.gz", hash = "sha256:cf7b31ae67e0c5b2919c703d2affc415485099d3fe6666a6912f040fd05cb67f"},
-    {file = "types_PyYAML-6.0.12.20240724-py3-none-any.whl", hash = "sha256:e5becec598f3aa3a2ddf671de4a75fa1c6856fbf73b2840286c9d50fae2d5d48"},
+    {file = "types-PyYAML-6.0.12.20240808.tar.gz", hash = "sha256:b8f76ddbd7f65440a8bda5526a9607e4c7a322dc2f8e1a8c405644f9a6f4b9af"},
+    {file = "types_PyYAML-6.0.12.20240808-py3-none-any.whl", hash = "sha256:deda34c5c655265fc517b546c902aa6eed2ef8d3e921e4765fe606fe2afe8d35"},
 ]
 
 [[package]]
