@@ -19,9 +19,9 @@ adafruit-circuitpython-requests==4.1.6 \
 adafruit-circuitpython-typing==1.10.3 \
     --hash=sha256:4c5c1eeb3ae8a3d2dfa75129654c73690fbdb576d9069542a6ea3355467e1e74 \
     --hash=sha256:4e23d6828deafa4dfd554fd7d3f06b8ff8e2cc554b9c7aecba9d778d45970c18
-adafruit-platformdetect==3.72.1 \
-    --hash=sha256:65a0aa5054a4a9a8f7e3d4eec9828815a4e1b02085b3c977975e41f697226fd5 \
-    --hash=sha256:a360ccb5fddfe60ce52304bb2d5a5345993df03997e33b7fd2dc65e51c39f02c
+adafruit-platformdetect==3.73.0 \
+    --hash=sha256:2309098adc8ff87b3d9a4a5d3aeebe3f7b7f55ab0e13d19eb75ffa865f36fab8 \
+    --hash=sha256:5fc80192a154c29dc1e2819e9c435ea7f8af8fe01c328f35e4bfdabb9934a425
 adafruit-pureio==1.1.11 \
     --hash=sha256:281ab2099372cc0decc26326918996cbf21b8eed694ec4764d51eefa029d324e \
     --hash=sha256:c4cfbb365731942d1f1092a116f47dfdae0aef18c5b27f1072b5824ad5ea8c7c
@@ -192,9 +192,9 @@ termcolor==2.4.0 \
 tomli==2.0.1; python_version < "3.11" \
     --hash=sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc \
     --hash=sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f
-types-pyyaml==6.0.12.20240724 \
-    --hash=sha256:cf7b31ae67e0c5b2919c703d2affc415485099d3fe6666a6912f040fd05cb67f \
-    --hash=sha256:e5becec598f3aa3a2ddf671de4a75fa1c6856fbf73b2840286c9d50fae2d5d48
+types-pyyaml==6.0.12.20240808 \
+    --hash=sha256:b8f76ddbd7f65440a8bda5526a9607e4c7a322dc2f8e1a8c405644f9a6f4b9af \
+    --hash=sha256:deda34c5c655265fc517b546c902aa6eed2ef8d3e921e4765fe606fe2afe8d35
 typing-extensions==4.12.2 \
     --hash=sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d \
     --hash=sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8
