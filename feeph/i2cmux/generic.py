@@ -91,7 +91,7 @@ class MuxBurstHandler(BurstHandler):
         LH.debug("[%d] I²C I/O burst completed after %d ms.", id(self), elapsed_ns / (1000 * 1000))
         # -----------------------------------------------------------------
         # send I²C command to reset the TCA9548A?
-        self._i2c_bus.writeto(self._tca_adr, b"\x00")
+        self._i2c_bus.writeto(self._tca_adr, bytearray([0x00]))
         # -----------------------------------------------------------------
         LH.debug("[%d] Releasing the lock on the I²C bus.", id(self))
         self._i2c_bus.unlock()
