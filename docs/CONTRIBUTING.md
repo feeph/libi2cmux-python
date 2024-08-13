@@ -52,6 +52,6 @@ tox
 ### use the demo script
 
 ```SHELL
-pdm run scripts/demonstrator.py
-pdm run scripts/demonstrator.py -v -i 2
+pdm run examples/demonstrator.py
+pdm run examples/demonstrator.py -v -i 2
 ```
