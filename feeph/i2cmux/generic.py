@@ -43,8 +43,8 @@ class MuxBurstHandler(BurstHandler):
         # this a low-level class and should not be used directly
         # specific implementations should be derive from this class and
         # they are expected to perform  all necessary input validation
-        self._i2c_bus = i2c_bus
-        self._i2c_adr = i2c_adr
+        super().__init__(i2c_bus=i2c_bus, i2c_adr=i2c_adr)
+        self._channel_switch = bytearray()
         self._tca_adr = tca_adr
         self._tca_cid = tca_cid
         self._timeout_ms = timeout_ms
@@ -79,8 +79,8 @@ class MuxBurstHandler(BurstHandler):
         # successfully acquired a lock
         # -----------------------------------------------------------------
         # send I²C command to configure the correct channel
-        self.channel_switch = bytearray([1 << self._tca_cid])
-        self._i2c_bus.writeto(self._tca_adr, self.channel_switch)
+        self._channel_switch = bytearray([1 << self._tca_cid])
+        self._i2c_bus.writeto(self._tca_adr, self._channel_switch)
         # -----------------------------------------------------------------
         elapsed_ns = time.perf_counter_ns() - self._timestart_ns
         LH.debug("[%d] Acquired a lock on the I²C bus after %d ms.", id(self), elapsed_ns / (1000 * 1000))
