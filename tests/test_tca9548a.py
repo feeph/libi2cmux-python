@@ -18,7 +18,6 @@ from feeph.i2c import EmulatedI2C
 
 import feeph.i2cmux as sut
 
-
 if os.environ.get('TEST_TCA9548A_CHIP', 'n') == 'y':
     HAS_HARDWARE = True
 else:
@@ -80,3 +79,61 @@ class TestComponent(unittest.TestCase):
             computed = bh.read_register(0x01)
         expected = 0x12
         self.assertEqual(computed, expected)
+
+    # ---------------------------------------------------------------------
+
+    def test_invalid_device_address(self):
+        # this code tests the equivalent of:
+        # with sut.TCA9548A(i2c_bus=i2c_bus, i2c_adr=0xFFFF) as bh:
+        #     ...
+        i2c_bus = EmulatedI2C(state={})
+        # -----------------------------------------------------------------
+        # -----------------------------------------------------------------
+        self.assertRaises(ValueError, sut.TCA9548A, i2c_bus=i2c_bus, i2c_adr=0xFFFF)
+
+    def test_invalid_tca_address(self):
+        # this code tests the equivalent of:
+        # with sut.TCA9548A(i2c_bus=i2c_bus, i2c_adr=0x4C, tca_adr=0x07) as bh:
+        #     ...
+        i2c_bus = EmulatedI2C(state={})
+        # -----------------------------------------------------------------
+        # -----------------------------------------------------------------
+        self.assertRaises(ValueError, sut.TCA9548A, i2c_bus=i2c_bus, i2c_adr=0x4C, tca_adr=0x07)
+
+    def test_invalid_timeout(self):
+        # this code tests the equivalent of:
+        # with sut.TCA9548A(i2c_bus=i2c_bus, i2c_adr=0x4C, timeout_ms=0) as bh:
+        #     ...
+        i2c_bus = EmulatedI2C(state={}, lock_chance=1)
+        # -----------------------------------------------------------------
+        # -----------------------------------------------------------------
+        self.assertRaises(ValueError, sut.TCA9548A, i2c_bus=i2c_bus, i2c_adr=0x4C, timeout_ms=0)
+
+    def test_hard_to_lock(self):
+        state = {
+            0x70: {
+                -1: 0x00,
+            },
+            0x4C: {
+                0x00: 0x12,
+            },
+        }
+        i2c_bus = EmulatedI2C(state=state, lock_chance=1)
+        # -----------------------------------------------------------------
+        # simulating an extremely busy I²C bus
+        # (there's a 1 percent chance to successfully lock the bus)
+        with sut.TCA9548A(i2c_bus=i2c_bus, i2c_adr=0x4C, timeout_ms=None) as bh:
+            computed = bh.read_register(0x00)
+        expected = 0x12
+        # -----------------------------------------------------------------
+        self.assertEqual(computed, expected)
+
+    def test_unable_to_lock(self):
+        # this code tests the equivalent of:
+        # with sut.TCA9548A(i2c_bus=i2c_bus, i2c_adr=0x4C) as bh:
+        #     ...
+        i2c_bus = EmulatedI2C(state={}, lock_chance=0)  # impossible to acquire a lock
+        bh = sut.TCA9548A(i2c_bus=i2c_bus, i2c_adr=0x4C)
+        # -----------------------------------------------------------------
+        # -----------------------------------------------------------------
+        self.assertRaises(RuntimeError, bh.__enter__)
