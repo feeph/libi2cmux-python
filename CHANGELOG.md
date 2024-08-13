@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/feeph/libi2cmux-python/compare/v0.1.0...v0.1.1) (2024-08-13)
+
+
+### Bug Fixes
+
+* send reset command as a bytearray instead of string ([d19c62f](https://github.com/feeph/libi2cmux-python/commit/d19c62f6a900a73e937c16c85c58098167941902))
+
 ## 0.1.0 (2024-07-23)
 
 
