@@ -5,7 +5,7 @@
 groups = ["default", "dev", "tools"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:9276ec735ccd28d46a759050e2578bb8ceec3bf454a411f43bb52f279890a3fe"
+content_hash = "sha256:ffe4c6e9e6f12905844afdd52633ad9b621e76cbf67ab588be3cab05924ec3b0"
 
 [[metadata.targets]]
 requires_python = ">=3.10,<3.13"
@@ -179,6 +179,21 @@ files = [
 ]
 
 [[package]]
+name = "click"
+version = "8.1.7"
+requires_python = ">=3.7"
+summary = "Composable command line interface toolkit"
+groups = ["tools"]
+dependencies = [
+    "colorama; platform_system == \"Windows\"",
+    "importlib-metadata; python_version < \"3.8\"",
+]
+files = [
+    {file = "click-8.1.7-py3-none-any.whl", hash = "sha256:ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28"},
+    {file = "click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"},
+]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
@@ -255,6 +270,22 @@ files = [
     {file = "coverage-7.6.1-cp312-cp312-win_amd64.whl", hash = "sha256:b5d7b556859dd85f3a541db6a4e0167b86e7273e1cdc973e5b175166bb634fdb"},
     {file = "coverage-7.6.1-pp38.pp39.pp310-none-any.whl", hash = "sha256:e9a6e0eb86070e8ccaedfbd9d38fec54864f3125ab95419970575b42af7541df"},
     {file = "coverage-7.6.1.tar.gz", hash = "sha256:953510dfb7b12ab69d20135a0662397f077c59b1e6379a768e97c59d852ee51d"},
+]
+
+[[package]]
+name = "coverage-lcov"
+version = "0.3.0"
+requires_python = "<4.0.0,>=3.6.3"
+summary = "A simple .coverage to LCOV converter"
+groups = ["tools"]
+dependencies = [
+    "click>=7.1.2",
+    "coverage[toml]>=5.5; python_full_version < \"3.8.0\"",
+    "coverage[toml]>=7.0; python_full_version >= \"3.8.0\"",
+]
+files = [
+    {file = "coverage-lcov-0.3.0.tar.gz", hash = "sha256:0b352da0c72eacd555de2e10fa75ec165b8849ab6827218abc3ef6be2ec861f6"},
+    {file = "coverage_lcov-0.3.0-py3-none-any.whl", hash = "sha256:23ae34a535f1ed3fa4cdf9682f6c1fe1a40aa98c94aa05614512dbf2da82e749"},
 ]
 
 [[package]]
@@ -343,7 +374,7 @@ files = [
 
 [[package]]
 name = "feeph-i2c"
-version = "0.7.3"
+version = "0.7.4"
 requires_python = "<3.13,>=3.10"
 summary = "abstraction layer for the I²C bus (incl. simulation for testing)"
 groups = ["default"]
@@ -353,8 +384,8 @@ dependencies = [
     "gpiod~=2.2",
 ]
 files = [
-    {file = "feeph_i2c-0.7.3-py3-none-any.whl", hash = "sha256:f5cf7c7090861fe9cc6c385bb41e22f7fb97f5e6896c013ce4ab7115939246ef"},
-    {file = "feeph_i2c-0.7.3.tar.gz", hash = "sha256:5a1937c4fcc4a7820e64b4195077d8a36e99430382b0e5dc291ed79ac053e53c"},
+    {file = "feeph_i2c-0.7.4-py3-none-any.whl", hash = "sha256:cc6963d746bed5500ee9d7f43f979a51c9f10bede3e273276df1dee8dcae8b34"},
+    {file = "feeph_i2c-0.7.4.tar.gz", hash = "sha256:57e64801d6f6f1eeca8313da0299ad59bd04b3d1d007470f1c9912377aef6669"},
 ]
 
 [[package]]
